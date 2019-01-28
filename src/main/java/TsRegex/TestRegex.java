@@ -13,6 +13,7 @@ public class TestRegex {
     public static void main(String[] args) {
         Pattern patternFilter;
         String regFilter = "^\\d{9}(00|01)$";
+//        String regFilter = "^\\d+(00|01)$";
         if("".equals(regFilter)||regFilter ==null){
             patternFilter = null;
         }else{
