@@ -16,5 +16,6 @@ public class ServletMappingConfig {
     static {
         servletMappingList.add(new ServletMapping("findGirl","/girl","TomcatSample.FindGirlServlet"));
         servletMappingList.add(new ServletMapping("findGirl","/world","TomcatSample.HelloWorldServlet"));
+        servletMappingList.add(new ServletMapping("findGirl","/favicon.ico","TomcatSample.IcoServlet"));
     }
 }
