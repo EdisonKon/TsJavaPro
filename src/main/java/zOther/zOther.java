@@ -1,5 +1,9 @@
 package zOther;
 
+import org.junit.Test;
+
+import java.util.HashMap;
+import java.util.Map;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.atomic.AtomicInteger;
 
@@ -11,8 +15,22 @@ import java.util.concurrent.atomic.AtomicInteger;
 
 
 public class zOther {
-//test
-    //test name
-
-
+    public static void main(String[] args) {
+        Map<String , String> m = new HashMap<>();
+        for (int i = 0; i < 10; i++) {
+//            cmap(m,i);
+        }
+        System.out.println(m);
+    }
+    @Test
+    public void tettt(){
+        Map<String , String> m = new HashMap<>();
+        for (int i = 0; i < 10; i++) {
+            cmap(m,i);
+        }
+        System.out.println(m);
+    }
+    public void cmap (Map<String , String> m,int i){
+        m.put("i:"+i,i+"");
+    }
 }
