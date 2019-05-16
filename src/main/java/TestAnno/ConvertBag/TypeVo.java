@@ -8,15 +8,25 @@ package TestAnno.ConvertBag;
 
 
 public class TypeVo {
-    public TypeVo(String tname, String type, String tpx) {
+    public TypeVo(String name, String tname, String type, String tpx) {
+        this.name = name;
         this.tname = tname;
         this.type = type;
         this.tpx = tpx;
     }
 
+    private String name;
     private String tname;
     private String type;
     private String tpx;
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
 
     public String getTname() {
         return tname;

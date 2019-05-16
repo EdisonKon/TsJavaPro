@@ -14,7 +14,7 @@ public class SomeDTO {
     private String tpxDto;
 
     @MyConvert(froms = "nameVo,typeVo")
-    @MyConvertConfig({"tpx:tpxDto"})
+    @MyConvertConfig({"name:nameVo.name","tpxDto:tpx"})
     public SomeDTO() {
     }
 
