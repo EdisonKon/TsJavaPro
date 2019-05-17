@@ -12,7 +12,7 @@ import TestAnno.ReflectTest;
 
 public class TestMyConvert {
     private NameVo nameVo = new NameVo("znm",20);
-    private TypeVo typeVo = new TypeVo("xnm","mnm","sb","supet");
+    private TypeVo typeVo = new TypeVo("xnm","mnm","sb","super");
     private static SomeDTO s = new SomeDTO();
     public static void main(String[] args) {
 

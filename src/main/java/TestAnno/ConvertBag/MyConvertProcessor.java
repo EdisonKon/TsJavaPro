@@ -126,7 +126,7 @@ public class MyConvertProcessor {
      * @param class2 提供数据的对象
      * @throws Exception
      */
-    public static void converJavaBean(Object class1, Object class2, Map<String,Object> mapConfigs) {
+    public void converJavaBean(Object class1, Object class2, Map<String, Object> mapConfigs) {
         try {
             Class<?> clazz1 = class1.getClass();
             Class<?> clazz2 = class2.getClass();
@@ -155,36 +155,18 @@ public class MyConvertProcessor {
                     String getName = set[i].getName().replace("set","get");
                     //从配置中获取
                     Object config = mapConfigs.get(setName);
+                    if(doConfig(setName,config,clazz1,clazz2,class1,class2)) continue;
                     Method getMethod;
                     try {
-                        // 判断在class2中时候有class1中的set值的get方法，如果没有则抛异常继续循环
+                        // 判断在class2中时候有class1中的set值的get方法，如果没有则抛异常进行配置验证
                         getMethod = clazz2.getMethod(getName, new Class[] {});
                     } catch (NoSuchMethodException e) {
-                        if(config!=null){
-
-                            continue;
-                        }else{
-                            continue;
-                        }
+                        continue;
                     }
                     Object value = getMethod.invoke(class2, new Object[] {});
                     if (null == value) continue;
                     // 得到set方法的时候传入的参数类型，就是get方法的返回类型
                     Class<?> paramType = getMethod.getReturnType();
-                    if(config!=null){
-                        if(config instanceof String){
-                            Method setMethod = clazz1.getMethod((String) config, paramType);
-                            setMethod.invoke(class1, value);
-                        }else{
-                            KvEntity kv = (KvEntity)config;
-                            String className = clazz2.getName();
-                            if(kv.getKey().equalsIgnoreCase(className.substring(className.lastIndexOf(".")+1))){
-                                Method setMethod = clazz1.getMethod(((KvEntity) config).getValue(), paramType);
-                                setMethod.invoke(class1, value);
-                            }
-                        }
-                        continue;
-                    }
                     // 得到class1的set方法，并调用
                     Method setMethod = clazz1.getMethod(setName, paramType);
                     setMethod.invoke(class1, value);
@@ -195,6 +177,39 @@ public class MyConvertProcessor {
         }
     }
 
+    private boolean doConfig(String setName,Object config,Class<?> clazz1,Class<?> clazz2,Object class1, Object class2){
+        if(config!=null){
+            if(config instanceof String){
+                String getName = config.toString().replace("set","get");
+                try{
+                    Method getMethod = clazz2.getMethod(getName, new Class[] {});
+                    Object value = getMethod.invoke(class2, new Object[] {});
+                    Class<?> paramType = getMethod.getReturnType();
+                    Method setMethod = clazz1.getMethod(setName, paramType);
+                    setMethod.invoke(class1, value);
+                }catch (Exception e){
+                    return false;
+                }
+            }else{
+                KvEntity kv = (KvEntity)config;
+                String className = clazz2.getName();
+                if(kv.getKey().equalsIgnoreCase(className.substring(className.lastIndexOf(".")+1))){
+                    String getName = ((KvEntity) config).getValue().toString().replace("set","get");
+                    try{
+                        Method getMethod = clazz2.getMethod(getName, new Class[] {});
+                        Object value = getMethod.invoke(class2, new Object[] {});
+                        Class<?> paramType = getMethod.getReturnType();
+                        Method setMethod = clazz1.getMethod(setName, paramType);
+                        setMethod.invoke(class1, value);
+                    }catch (Exception e){
+                        return false;
+                    }
+                }
+            }
+            return true;
+        }
+        return false;
+    }
     class KvEntity{
         public KvEntity(String key, String value) {
             this.key = key;
