@@ -17,6 +17,20 @@ public class TestReentantLock {
     public TestReentantLock() {
     }
 
+    public void testAwait2(){
+        lock.lock();
+        try {
+            System.out.println("开始wait:"+Thread.currentThread().getName());
+            Thread.sleep(3000);
+            System.out.println("wait 3s :"+Thread.currentThread().getName()+"操作完成");
+
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }finally {
+            lock.unlock();
+        }
+    }
+
     public void testAwait(){
         lock.lock();
         System.out.println("开始wait:"+Thread.currentThread().getName());

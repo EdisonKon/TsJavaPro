@@ -14,10 +14,14 @@ public class MyThread extends Thread{
         super();
         this.testReentantLock = testReentantLock;
     }
+//    @Override
+//    public void run() {
+//        testReentantLock.testAwait2();
+//    }
 
     @Override
     public void run() {
-        testReentantLock.testAwait();
+        testReentantLock.testAwait2();
     }
 
 
