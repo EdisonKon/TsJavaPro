@@ -21,7 +21,7 @@ public class Producter {
             System.out.println("jsppp"+productList);
             while (true) {
                 System.out.println(Thread.currentThread().getName());
-                while (productList.list.size() >= 3) {
+                while (productList.list.size() >= productList.limit) {
                     productList.wait();
                 }
 
