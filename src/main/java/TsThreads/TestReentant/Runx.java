@@ -12,14 +12,14 @@ public class Runx {
     public Runx() {
 
     }
-    public static void main2(String[] args) throws InterruptedException {
+    public static void main(String[] args) throws InterruptedException {
         TestReentantLock t = new TestReentantLock();
         MyThread thread = new MyThread(t);
         thread.start();
         MyThread thread2 = new MyThread(t);
         thread2.start();
 
-        Thread.sleep(2000);
+//        Thread.sleep(2000);
         System.out.println("主线程睡2s,通知第1次");
         t.testSignal();
         Thread.sleep(5000);
@@ -28,7 +28,7 @@ public class Runx {
 
     }
 
-    public static void main(String[] args) throws InterruptedException {
+    public static void main2(String[] args) throws InterruptedException {
         TestReentantLock t = new TestReentantLock();
         MyThread thread = new MyThread(t);
         thread.start();
