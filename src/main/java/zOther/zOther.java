@@ -1,5 +1,6 @@
 package zOther;
 
+import net.sf.cglib.beans.BeanCopier;
 import org.junit.Test;
 
 import java.util.HashMap;
@@ -33,4 +34,5 @@ public class zOther {
     public void cmap (Map<String , String> m,int i){
         m.put("i:"+i,i+"");
     }
+
 }
