@@ -1,0 +1,49 @@
+配置中心
+注册中心
+
+服务跟踪
+每次进入的唯一traceid
+每个服务的spanid
+每个服务耗时，参数，事件名称，请求信息
+
+
+提升效率
+ibatis热启动插件
+通过注解方式注入从其他PO，DO转DTO
+
+Es做的用户标签
+https://elasticsearch.cn/slides/141#page=9
+es存储高活跃用户，低活用户存储在hbase，当业务系统有数据更新，检测到转入活跃状态 讲账号切入到es
+es的刷盘时间稍微调高，降低阻塞，提高性能
+
+kylin
+
+------------------------------------------
+占小狼简书
+
+以前总结的work
+
+小册redis
+
+阿里redis课堂那个课，看看bitmap，boolem过滤器
+
+jvm虚拟机
+
+锁
+
+mysql 索引优化的一个文章
+mysql的锁 https://mp.weixin.qq.com/s/r7dges36m4aQMfFYlLm97w
+局促索引
+事务，redo、undo log
+
+
+bit byte 字节 换算、计算
+
+设计模式简单看看 单例 工厂 装饰器什么的
+https://www.runoob.com/design-pattern/abstract-factory-pattern.html
+
+树 平衡二叉树什么的
+极客时间 算法数据结构部分讲
+
+算法刷题
+小灰算法再看一遍
