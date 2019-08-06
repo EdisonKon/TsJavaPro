@@ -1,4 +1,4 @@
-package TestCglibBeanCopy;
+package TestCglib.BeanCopierTest;
 
 import net.sf.cglib.beans.BeanCopier;
 import net.sf.cglib.core.Converter;
