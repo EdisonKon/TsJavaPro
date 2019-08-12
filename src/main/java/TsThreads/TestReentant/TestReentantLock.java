@@ -12,12 +12,12 @@ import java.util.concurrent.locks.ReentrantLock;
  * @from
  **/
 public class TestReentantLock {
-    private ReentrantLock lock = new ReentrantLock();
+    public ReentrantLock lock = new ReentrantLock();
     public Condition condition = lock.newCondition();
     public TestReentantLock() {
     }
 
-    public void testAwait2(){
+    public void testAwait(){
         lock.lock();
         try {
             System.out.println("开始wait:"+Thread.currentThread().getName());
@@ -31,13 +31,14 @@ public class TestReentantLock {
         }
     }
 
-    public void testAwait(){
+    public void testAwait2(){
         lock.lock();
         System.out.println("开始wait:"+Thread.currentThread().getName());
         try {
-            condition.await();
             Thread.sleep(3000);
-            System.out.println("wait 3s :"+Thread.currentThread().getName()+"操作完成");
+            condition.await();
+            Thread.sleep(1000);
+            System.out.println("wait 1s :"+Thread.currentThread().getName()+"操作完成");
 
         } catch (InterruptedException e) {
             e.printStackTrace();

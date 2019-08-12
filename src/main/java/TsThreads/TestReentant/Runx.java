@@ -19,13 +19,19 @@ public class Runx {
         MyThread thread2 = new MyThread(t);
         thread2.start();
 
-//        Thread.sleep(2000);
+        Thread.sleep(100);
+        while(!t.lock.tryLock()){
+            System.out.println("获取锁失败");
+            Thread.sleep(500);
+        }
+        System.out.println("获取锁成功");
+        t.lock.unlock();
+        System.out.println("放锁");
         System.out.println("主线程睡2s,通知第1次");
         t.testSignal();
         Thread.sleep(5000);
         System.out.println("主线程睡5s,通知第2次");
         t.testSignal();
-
     }
 
     public static void main2(String[] args) throws InterruptedException {
