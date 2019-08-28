@@ -32,6 +32,12 @@ public class MyThread extends Thread{
 
     }
 
+    /**
+     * 其他线程状态中断的结果可参看
+     * https://www.cnblogs.com/yangming1996/p/7612653.html
+     * @param args
+     * @throws Exception
+     */
     public static void main(String[] args) throws Exception{
         //waiting 状态时候,设置中断会抛出interrupt异常 此时会清空标志位 并停止线程
         Thread thread = new MyThread();
