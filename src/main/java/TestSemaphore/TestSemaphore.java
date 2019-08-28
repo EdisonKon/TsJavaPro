@@ -12,7 +12,8 @@ public class TestSemaphore {
     public TestSemaphore(){
     }
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InterruptedException {
+        Thread.sleep(10000);
         System.out.println(1111);
         MySemaphoreObjPool pool = new MySemaphoreObjPool(3,Entity.class);
         for (int i = 0; i < 10; i++) {
