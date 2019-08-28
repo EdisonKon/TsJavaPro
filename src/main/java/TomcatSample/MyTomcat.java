@@ -58,6 +58,8 @@ public class MyTomcat {
             System.out.println("MyTomcat is start...");
 
             while (true){
+                System.out.println("get url request");
+                //socket.accept 是阻塞的
                 Socket socket = serverSocket.accept();
                 InputStream inputStream = socket.getInputStream();
                 OutputStream outputStream = socket.getOutputStream();

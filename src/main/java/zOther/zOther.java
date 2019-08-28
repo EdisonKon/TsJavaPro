@@ -5,7 +5,9 @@ import org.junit.Test;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.CountDownLatch;
+import java.util.concurrent.SynchronousQueue;
 import java.util.concurrent.atomic.AtomicInteger;
 
 /**
@@ -34,5 +36,36 @@ public class zOther {
     public void cmap (Map<String , String> m,int i){
         m.put("i:"+i,i+"");
     }
+
+    @Test
+    public  void testSq() throws Exception {
+        BlockingQueue<Integer> queue = new SynchronousQueue<>();
+        Thread a = new Thread(new Runnable() {
+            @Override
+            public void run() {
+                try {
+                    System.out.println(queue.take()+ " 子线程取1");
+                    System.out.println(queue.take()+ " 子线程取2");
+                    System.out.println(queue.take()+ " 子线程取3");
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+            }
+        });
+        a.start();
+        Thread.sleep(100);
+        System.out.println(queue.offer(1) + " 放了1");
+        Thread.sleep(100);
+        System.out.println(queue.offer(2) + " 放了2");
+        Thread.sleep(100);
+        System.out.println(queue.offer(3) + " 放了3");
+//        System.out.println(queue.take() + " 主线程取");
+//        System.out.println(queue.size());
+
+
+    }
+
+
+
 
 }
