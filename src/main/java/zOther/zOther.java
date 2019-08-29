@@ -3,7 +3,9 @@ package zOther;
 import net.sf.cglib.beans.BeanCopier;
 import org.junit.Test;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.CountDownLatch;
@@ -65,6 +67,19 @@ public class zOther {
 
     }
 
+    @Test
+    public void testList(){
+        List al = new ArrayList();
+        al.add("S1");
+        al.add("S2");
+        al.add("S3");
+        al.add("S4");
+        for (int i = 0; i < al.size(); i++) {
+            al.remove(i);
+//            al.set(i,"SS"+i);
+        }
+        System.out.println(al.toString());
+    }
 
 
 
