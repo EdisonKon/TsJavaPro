@@ -48,3 +48,9 @@ https://www.runoob.com/design-pattern/abstract-factory-pattern.html
 
 算法刷题
 小灰算法再看一遍
+
+
+分布式事务，包括其产生原因、业务背景、主流的解决方案等。
+理解CAP、BASE等理论，懂得从最终一致性等角度来思考问题
+理解典型的分布式锁实现，例如最常见的Redis 分布式锁。
+负载均衡等分布式领域的典型算法，至少要了解主要方案的原理。
