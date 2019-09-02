@@ -80,6 +80,20 @@ public class zOther {
         }
         System.out.println(al.toString());
     }
+    @Test
+    public void upTurnBack(){
+        String s = "ADbcjyBkC";
+        String tem = "";
+        for (int i = 0; i < s.length(); i++) {
+            if(s.charAt(i)>='A' && s.charAt(i)<='Z'){
+                tem = tem.concat(String.valueOf(s.charAt(i)));
+                s = s.substring(0,i).concat(s.substring(i+1));
+                i--;
+            }
+        }
+        s = s.concat(tem);
+        System.out.println(s);
+    }
 
 
 
