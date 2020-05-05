@@ -16,19 +16,24 @@ import java.util.UUID;
 
 public class TestJVMLoad5 {
     public static void main(String[] args) {
-        System.out.println(MyChild5.b);
+        System.out.println(MyChild5.a);
     }
 
 }
 
 interface MyParent5{
-    public static int a = 5;
+    int a = new Random().nextInt(2);
+    public static Thread thread= new Thread(){
+        {
+            System.out.println("parent5 invoke");
+        }
+    };
 
 }
 
 interface MyChild5 extends MyParent5{
     // 无所谓父类初始化与否
-    //    public static int b = 5;
+//        public static int b = 5;
     //必须父类要初始化完成，因为random属于动态初始化，无法在常量池中
     public static int b = new Random().nextInt(2);
 }
