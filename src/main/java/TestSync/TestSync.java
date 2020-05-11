@@ -29,5 +29,10 @@ public class TestSync {
         }
     }
 
+    public void setIndexToStatic(){
+        synchronized (this){
+            TestSync.index ++;
+        }
+    }
 
 }
