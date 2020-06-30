@@ -28,6 +28,11 @@ public class TestString {
         val = testString(val,ch);
         System.out.println(val);
         System.out.println(ch);
+
+        String a = new String("qqqq");
+        a.intern();
+        String b = "qqqq";
+        System.out.println(a == b);
     }
     public static String testString(String val ,char[] ch) {
         val = "aaa";

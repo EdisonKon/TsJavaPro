@@ -18,11 +18,13 @@ import java.util.concurrent.SynchronousQueue;
 
 public class zOther {
     public static void main(String[] args) {
-        Map<String , String> m = new HashMap<>();
-        for (int i = 0; i < 10; i++) {
-//            cmap(m,i);
-        }
-        System.out.println(m);
+//        Map<String , String> m = new HashMap<>();
+//        for (int i = 0; i < 10; i++) {
+////            cmap(m,i);
+//        }
+//        System.out.println(m);
+        float r20 = getRate(20,7816.80f,3.6f);
+        float r30 = getRateMore(11,r20);
     }
     @Test
     public void tettt(){
@@ -90,6 +92,26 @@ public class zOther {
         }
         s = s.concat(tem);
         System.out.println(s);
+    }
+
+    //测试银行利率
+    public static float getRate(int years,float money,float rate){
+        float cur = 0;
+        for (int i = 0; i < years; i++) {
+            float curMoney = (cur+money);
+            cur = curMoney + curMoney*(rate/100);
+            System.out.println("第"+(i+1)+"年: "+cur);
+        }
+        return cur;
+    }
+
+    public static float getRateMore(int years,float money){
+        float cur = money;
+        for (int i = 0; i < years; i++) {
+            cur = (float) (cur + cur*(2.75/100));
+            System.out.println("第"+(i+1)+"年: "+cur);
+        }
+        return cur;
     }
 
 
