@@ -1,4 +1,4 @@
-package com.testactivemq.demo;
+package com.testactivemq;
 
 import org.apache.activemq.command.ActiveMQQueue;
 import org.springframework.beans.factory.annotation.Value;

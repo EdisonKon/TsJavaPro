@@ -9,9 +9,9 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>com.testactivemq</groupId>
-    <artifactId>demo</artifactId>
+    <artifactId>activemq_productor</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>demo</name>
+    <name>activemq_productor</name>
     <description>Demo project for Spring Boot</description>
 
     <properties>
