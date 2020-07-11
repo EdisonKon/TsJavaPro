@@ -23,7 +23,7 @@ public class zOther {
 ////            cmap(m,i);
 //        }
 //        System.out.println(m);
-        float r20 = getRate(20,4716.80f,2.75f);
+        float r20 = getRate(20,4716.80f,4.75f);
         float r30 = getRateMore(11,r20);
     }
     @Test
