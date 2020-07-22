@@ -28,6 +28,15 @@ public class TsCycleBarrier {
         map.put(2,266);
         map.put(3,366);
 
+
+        String a = "1234";
+        char[] ax = a.toCharArray();
+        String rs = "";
+        for (int i = ax.length-1; i >= 0; i--) {
+            rs+=ax[i];
+        }
+        System.out.println("结果:"+rs);
+
         map.get(2);
         map.get(1);
         for(Object mapx :map.entrySet()){
