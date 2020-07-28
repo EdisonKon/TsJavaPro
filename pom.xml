@@ -57,7 +57,13 @@
             <artifactId>zookeeper</artifactId>
             <version>3.6.1</version>
         </dependency>
-
+        <!-- 对象布局分析 java object layout-->
+        <!-- https://mvnrepository.com/artifact/org.openjdk.jol/jol-core -->
+        <dependency>
+            <groupId>org.openjdk.jol</groupId>
+            <artifactId>jol-core</artifactId>
+            <version>0.10</version>
+        </dependency>
     </dependencies>
 
     
