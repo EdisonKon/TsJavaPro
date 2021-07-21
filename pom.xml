@@ -64,6 +64,21 @@
             <artifactId>jol-core</artifactId>
             <version>0.10</version>
         </dependency>
+        <!-- lombok-->
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>1.18.16</version>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/io.trino/trino-jdbc -->
+        <dependency>
+            <groupId>io.trino</groupId>
+            <artifactId>trino-jdbc</artifactId>
+            <version>359</version>
+            <scope>test</scope>
+        </dependency>
+
     </dependencies>
 
     
