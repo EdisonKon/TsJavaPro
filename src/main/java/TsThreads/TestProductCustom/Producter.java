@@ -20,11 +20,11 @@ public class Producter {
         synchronized (productList) {
             System.out.println("jsppp"+productList);
             while (true) {
-                System.out.println(Thread.currentThread().getName());
+                System.out.println(Thread.currentThread().getName()  + "生产者");
                 while (productList.list.size() >= productList.limit) {
                     productList.wait();
                 }
-
+                Thread.sleep(1000);
                 productList.list.add("product");
                 System.out.println("生产成功" + productList.list.size());
                 productList.notifyAll();
