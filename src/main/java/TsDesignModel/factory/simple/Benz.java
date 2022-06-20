@@ -1,0 +1,16 @@
+package TsDesignModel.factory.simple;
+
+import org.junit.Test;
+
+/**
+ * @author dekai.kong
+ * @difficult
+ * @create 2022-06-19 21:11
+ * @from
+ **/
+public class Benz implements Car{
+    @Override
+    public void name() {
+        System.out.println("梅赛德斯奔驰");
+    }
+}
