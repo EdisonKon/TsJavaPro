@@ -2,6 +2,9 @@ package TsThreads.TestReentant;
 
 import org.junit.Test;
 
+import java.util.concurrent.Callable;
+import java.util.concurrent.ExecutionException;
+import java.util.concurrent.FutureTask;
 import java.util.concurrent.locks.Condition;
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
@@ -15,11 +18,23 @@ import java.util.concurrent.locks.ReentrantLock;
 public class TsOrderExec {
 
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws ExecutionException, InterruptedException {
         Ticket ticket = new Ticket();
         new Thread(()->{while(true){ticket.printNumfor1();}},"A").start();
         new Thread(()->{while(true){ticket.printNumfor2();}},"B").start();
         new Thread(()->{while(true){ticket.printNumfor3();}},"C").start();
+
+        FutureTask<String> futureTask = new FutureTask<>(new Mycallable());
+        new Thread(futureTask).start();
+        System.out.println(futureTask.get());
+    }
+
+    static class Mycallable implements Callable<String> {
+
+        @Override
+        public String call() throws Exception {
+            return "111";
+        }
     }
 
 
