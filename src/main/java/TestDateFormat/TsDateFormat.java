@@ -29,6 +29,8 @@ import java.util.Date;
  * 在线程A操作日期的调用链中，把对象sa暴露给了线程B，线程B也执行了sa.format(date) -> calendar.setTime(date), 写操作
  * 此时线程A在进行读calendar操作，calendar内部的date已经被修改了，就会操作预期外的结果。
  *
+ * 解决办法 线程池 + ThreadLocal
+ *
  **/
 public class TsDateFormat {
     static SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
