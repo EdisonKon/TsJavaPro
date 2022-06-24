@@ -29,7 +29,10 @@ import java.util.Date;
  * 在线程A操作日期的调用链中，把对象sa暴露给了线程B，线程B也执行了sa.format(date) -> calendar.setTime(date), 写操作
  * 此时线程A在进行读calendar操作，calendar内部的date已经被修改了，就会操作预期外的结果。
  *
- * 解决办法 线程池 + ThreadLocal
+ * 解决办法
+ *
+ * 1. 在每个线程里单独创建format, 进行线程隔离 会产生很多new 的对象
+ * 2. 线程池 + ThreadLocal 池化就减少了new 对象 且threadlocal 保证了线程间隔离
  *
  **/
 public class TsDateFormat {
@@ -40,11 +43,13 @@ public class TsDateFormat {
         Date date3 = new Date(1592964786000L);
         Date date4 = new Date(1750731186000L);
         Date[] dates = new Date[]{date1,date2,date3,date4};
-        for (int i = 0; i < 5; i++) {
+        for (int i = 0; i < 10; i++) {
             int finalI = i;
             new Thread(()->{
+                // 解决办法如 在每个线程里单独创建format, 进行线程隔离
+                SimpleDateFormat simpleDateFormat2 = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
                 System.out.println(Thread.currentThread().getName() + dates[finalI %4]);
-                System.out.println(Thread.currentThread().getName() + simpleDateFormat.format(dates[finalI %4]));
+                System.out.println(Thread.currentThread().getName() + simpleDateFormat2.format(dates[finalI %4]));
             },"当前:"+finalI+"-->").start();
         }
     }
