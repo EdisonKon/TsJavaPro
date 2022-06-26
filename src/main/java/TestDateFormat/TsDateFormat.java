@@ -38,6 +38,9 @@ import java.util.Date;
 public class TsDateFormat {
     static SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
     public static void main(String[] args) {
+
+        ThreadLocal<String> ts = new ThreadLocal<>();
+
         Date date1 = new Date(1656036786108L);
         Date date2 = new Date(1624500786000L);
         Date date3 = new Date(1592964786000L);
