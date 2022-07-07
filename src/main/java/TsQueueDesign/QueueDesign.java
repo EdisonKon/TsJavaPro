@@ -64,7 +64,7 @@ public class QueueDesign {
                 System.out.println("key:"+key +" 被放入队列时队列已满...执行丢弃,界面上弹出稍后再试...");
             }
         }
-        return new TestMsgEntity(key + " 请稍后再试");
+        return null;
     }
 
 
@@ -85,7 +85,7 @@ public class QueueDesign {
                 return val;
             }else{
                 System.out.println(Thread.currentThread().getName()+"无法获取到 "+key+" 缓存, 正在去数据库中处理...");
-                TimeUnit.SECONDS.sleep(2);
+                TimeUnit.SECONDS.sleep(1);
                 TestMsgEntity msgEntity = new TestMsgEntity();
                 msgEntity.setName("aiyo" + Thread.currentThread().getName());
                 msgEntity.setAge(10);

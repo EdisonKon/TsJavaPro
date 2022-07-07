@@ -34,7 +34,11 @@ public class TsMain {
 
     public static void getValue(String key){
         TestMsgEntity msgEntity = qd.getMsgEntity(key);
-        System.out.println("结果:" + msgEntity);
+        if(msgEntity == null){
+            System.out.println("key:"+key+"->结果:请稍后再试!");
+        }else{
+            System.out.println("key:"+key+"->结果:" + msgEntity);
+        }
     }
 
 }
