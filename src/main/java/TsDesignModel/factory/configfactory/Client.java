@@ -10,7 +10,9 @@ package TsDesignModel.factory.configfactory;
 public class Client {
     public static void main(String[] args) {
         AnimalConfigFactory factory = new AnimalConfigFactory();
-        Animal dog = factory.getAnimal("dog");
+        AbstractAnimal dog = factory.getAnimal("dog");
+        dog.setName();
+        dog.getName();
         dog.sya();
     }
 }

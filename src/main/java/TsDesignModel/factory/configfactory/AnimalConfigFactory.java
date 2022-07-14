@@ -16,7 +16,7 @@ import java.util.Properties;
  **/
 public class AnimalConfigFactory {
 
-    private static Map<String ,Animal> mapAni = new HashMap<>(16);
+    private static Map<String ,AbstractAnimal> mapAni = new HashMap<>(16);
 
     static{
         Properties properties = new Properties();
@@ -28,7 +28,7 @@ public class AnimalConfigFactory {
                 String clazzStr = (String) objectEntry.getValue();
 
                 Class<?> aClass = Class.forName(clazzStr);
-                Animal ani = (Animal) aClass.newInstance();
+                AbstractAnimal ani = (AbstractAnimal) aClass.newInstance();
 
                 mapAni.put(clazzNam,ani);
             }
@@ -41,7 +41,7 @@ public class AnimalConfigFactory {
         }
     }
 
-    public Animal getAnimal(String name){
+    public AbstractAnimal getAnimal(String name){
         return mapAni.get(name);
     }
 
