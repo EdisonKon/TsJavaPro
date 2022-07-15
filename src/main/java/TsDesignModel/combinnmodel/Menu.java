@@ -38,6 +38,7 @@ public class Menu extends MenuComponent{
 
     @Override
     public void print() {
+
         System.out.println(name);
         for (int i = 0; i < childs.size(); i++) {
             String x = childs.get(i).name;
