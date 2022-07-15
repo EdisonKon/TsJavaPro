@@ -7,6 +7,9 @@ import org.junit.Test;
  * @difficult
  * @create 2022-07-15 11:42
  * @from
+ * 又名部分整体模式，是用于把一组相似的对象当作一个单一的对象。
+ * 组合模式依据树形结构来组合对象，用来表示部分以及整体层次。
+ * 这种类型的设计模式属于结构型模式，它创建了对象组的树形结构。
  **/
 public abstract class MenuComponent {
     protected String name;
