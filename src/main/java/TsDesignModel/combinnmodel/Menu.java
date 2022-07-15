@@ -38,15 +38,10 @@ public class Menu extends MenuComponent{
 
     @Override
     public void print() {
-
-        System.out.println(name);
-        for (int i = 0; i < childs.size(); i++) {
-            String x = childs.get(i).name;
-            for (int j = 0; j < childs.get(i).level; j++) {
-                x = "-" + x;
-            }
-            childs.get(i).name = x;
-            childs.get(i).print();
+        for (int i = 0; i < level; i++) {
+            System.out.print("--");
         }
+        System.out.println(name);
+        childs.forEach(MenuComponent::print);
     }
 }
