@@ -1,6 +1,12 @@
 package zOther;
 
 
+import org.junit.Test;
+
+import java.util.concurrent.ArrayBlockingQueue;
+import java.util.concurrent.ThreadPoolExecutor;
+import java.util.concurrent.TimeUnit;
+
 /**
  * @author dekai.kong
  * @difficult
@@ -38,6 +44,15 @@ public class TestString {
         val = "aaa";
         ch[0] = 'c';
         return val;
+    }
+    
+    @Test
+    public void testStringx(){
+        String s1 = "abc";
+        String s2 = "abc";
+        System.out.println(s1 == s2);
+        ThreadPoolExecutor threadPoolExecutor = new ThreadPoolExecutor(10,10,10, TimeUnit.SECONDS,new ArrayBlockingQueue<>(10));
+        threadPoolExecutor.allowCoreThreadTimeOut(true); // 设置核心线程是否可以被回收
     }
 
 }

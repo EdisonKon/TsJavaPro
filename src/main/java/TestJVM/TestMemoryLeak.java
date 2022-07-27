@@ -1,6 +1,9 @@
 package TestJVM;
 
 
+import java.util.HashMap;
+import java.util.Map;
+
 /**
  * @author dekai.kong
  * @difficult
@@ -9,14 +12,14 @@ package TestJVM;
  * 尝试写一个内存泄漏的代码
  **/
 public class TestMemoryLeak {
-    static StringBuilder value = new StringBuilder("666");
+    static Map<String,String> value = new HashMap<>(16);
 
     public static void main(String[] args) throws InterruptedException {
         Thread t1 = new Thread(new Runnable() {
             @Override
             public void run() {
                 for (int i = 0; i < 100000; i++) {
-                    value.append("[6661]");
+                    value.put("[6661]"+i,new String(new byte[1024*1024]));
                 }
             }
         });
@@ -24,7 +27,7 @@ public class TestMemoryLeak {
             @Override
             public void run() {
                 for (int i = 0; i < 100000; i++) {
-                    value.append("[6662]");
+                    value.put("[6662]"+i,"[6662][6662][6662][6662][6662][6662][6662][6662][6662][6662]");
                 }
             }
         });
