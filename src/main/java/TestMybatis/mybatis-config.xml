@@ -15,8 +15,11 @@
     </typeHandlers>
     <plugins>
 <!--        <plugin interceptor="TestMybatis.tsplugins.MyPlugin"></plugin>-->
-        <plugin interceptor="TestMybatis.tsplugins.MyPlugin4Params"></plugin>
-        <plugin interceptor="TestMybatis.tsplugins.MyPlugin4Result"></plugin>
+<!--        <plugin interceptor="TestMybatis.tsplugins.MyPlugin4Params"></plugin>-->
+<!--        <plugin interceptor="TestMybatis.tsplugins.MyPlugin4Result"></plugin>-->
+        <plugin interceptor="TestMybatis.tscommonplugin.PassProcessParamsPlugin"></plugin>
+        <plugin interceptor="TestMybatis.tscommonplugin.PassProcessResultsPlugin"></plugin>
+<!--        <plugin interceptor="TestMybatis.tsplugins.MyPlugin4Result"></plugin>-->
     </plugins>
     <!-- 定义数据库的信息，默认使用development数据库构建环境 -->
     <environments default="development">
