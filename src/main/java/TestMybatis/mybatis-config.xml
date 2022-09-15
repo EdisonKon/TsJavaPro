@@ -14,8 +14,9 @@
         <typeHandler jdbcType="VARCHAR" javaType="string" handler="TestMybatis.MyStringHandler"/>
     </typeHandlers>
     <plugins>
-        <plugin interceptor="TestMybatis.tsplugins.MyPlugin"></plugin>
-<!--        <plugin interceptor="TestMybatis.tsplugins.MyPlugin4Result"></plugin>-->
+<!--        <plugin interceptor="TestMybatis.tsplugins.MyPlugin"></plugin>-->
+        <plugin interceptor="TestMybatis.tsplugins.MyPlugin4Params"></plugin>
+        <plugin interceptor="TestMybatis.tsplugins.MyPlugin4Result"></plugin>
     </plugins>
     <!-- 定义数据库的信息，默认使用development数据库构建环境 -->
     <environments default="development">
@@ -23,9 +24,13 @@
             <transactionManager type="JDBC" />
             <dataSource type="POOLED">
                 <property name="driver" value="com.mysql.jdbc.Driver" />
-                <property name="url" value="jdbc:mysql://localhost:3306/test_self" />
-                <property name="username" value="root" />
-                <property name="password" value="pass@1234" />
+                <property name="url" value="jdbc:mysql://10.122.129.81:3306/test_kdk" />
+                <property name="username" value="dbconnect" />
+                <property name="password" value="abcd-1234" />
+<!--                <property name="driver" value="com.mysql.jdbc.Driver" />-->
+<!--                <property name="url" value="jdbc:mysql://localhost:3306/test_self" />-->
+<!--                <property name="username" value="root" />-->
+<!--                <property name="password" value="pass@1234" />-->
             </dataSource>
         </environment>
     </environments>

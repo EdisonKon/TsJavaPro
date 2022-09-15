@@ -1,6 +1,7 @@
 package TestMybatis.tsplugins;
 
 
+import com.alibaba.fastjson.JSONObject;
 import lombok.Data;
 import org.springframework.beans.factory.annotation.Value;
 
@@ -15,5 +16,6 @@ public class Role {
     private long id;
     @Value("role_name")
     private String roleName;
-    private String note;
+    private JSONObject note = new JSONObject();
+    private String password;
 }
